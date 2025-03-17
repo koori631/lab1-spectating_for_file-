@@ -4,13 +4,23 @@
 
 using namespace std;
 
+
+class FileManager {
+public :
+    void AddFile( const QString& FileWay );
+    void DeleteFile (const QString& FileWay);
+    bool Update();
+private:
+    QList<QFileInfo> contaner;
+};
+
 int main(int argc, char *argv[])
 {
     //1.FileState
 
  //   class FileManager
 //    {
-        //public: //contaner
+    //public: //contaner
     //bool add(parametrs)
     //bool delete(parametrs)
     //bool update()
@@ -18,26 +28,26 @@ int main(int argc, char *argv[])
 
         //private: //contaner - храним пути к файлам
  //   }
-
-
-
-
-    //QCoreApplication a(argc, argv);
-    QFileInfo f_info("H:\\Desktop\\test\\a.txt");
-    std::cout << f_info.exists() << std::endl;
-    std::cout << f_info.size() << std::endl;
-    bool fileexist = f_info.exists();
-    int fileCurrentSize = f_info.size();
+    QCoreApplication a(argc, argv);
+    QFileInfo fa_info("H:/Desktop/test/a.txt");
+    QFileInfo fb_info("H:/Desktop/test/b.txt");
+    QFileInfo fc_info("H:/Desktop/test/c.txt");
+    std::cout << fa_info.exists() << std::endl;
+    std::cout << fa_info.size() << std::endl;
+    std::cout << fb_info.size() << std::endl;
+    bool fileexist = fa_info.exists();
+    int fileCurrentSize = fa_info.size();
     while(1){
-        f_info.refresh();
-        if(fileexist != f_info.exists() || fileCurrentSize != f_info.size())
+        fa_info.refresh();
+        if(fileexist != fa_info.exists() || fileCurrentSize != fa_info.size())
         {
-            std::cout << f_info.exists() << std::endl;
-            std::cout << f_info.size() << std::endl;
-            fileexist=f_info.exists();
-            fileCurrentSize=f_info.size();
+            std::cout << fa_info.exists() << std::endl;
+            std::cout << fa_info.size() << std::endl;
+            fileexist=fa_info.exists();
+            fileCurrentSize=fa_info.size();
         }
     }
+
 
     return 0;//a.exec();
 }
